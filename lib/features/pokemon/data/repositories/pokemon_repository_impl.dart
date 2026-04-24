@@ -29,7 +29,7 @@ class PokemonRepositoryImpl implements PokemonRepository {
       try {
         final remotePokemon = await remoteDataSource.getPokemon(params: params);
 
-        localDataSource.cachePokemon(remotePokemon);
+        await localDataSource.cachePokemon(remotePokemon);
 
         return Right(remotePokemon);
       } on ServerException {
