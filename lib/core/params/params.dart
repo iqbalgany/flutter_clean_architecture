@@ -8,9 +8,14 @@ class TemplateParams {
 }
 
 class PokemonParams {
-  final String id;
+  final int id;
 
   PokemonParams({required this.id});
 }
 
-class PokemonImageParams {}
+class PokemonImageParams {
+  final String name;
+  final String imageUrl;
+
+  PokemonImageParams({required this.name, required this.imageUrl});
+}

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/pokemon_widget.dart';
+import '../widgets/search_pokemon_widget.dart';
+
 class PokemonPage extends StatelessWidget {
   const PokemonPage({super.key});
 
