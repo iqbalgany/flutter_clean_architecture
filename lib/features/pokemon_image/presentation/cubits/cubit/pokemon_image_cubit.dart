@@ -10,7 +10,8 @@ part 'pokemon_image_state.dart';
 
 class PokemonImageCubit extends Cubit<PokemonImageState> {
   final GetPokemonImage getPokemonImage;
-  PokemonImageCubit(this.getPokemonImage) : super(const PokemonImageState());
+  PokemonImageCubit({required this.getPokemonImage})
+    : super(const PokemonImageState());
 
   bool isShiny = true;
 

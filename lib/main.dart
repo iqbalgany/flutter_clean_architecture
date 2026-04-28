@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_architecture/features/pokemon/presentation/cubits/pokemon/pokemon_cubit.dart';
+import 'package:flutter_clean_architecture/features/pokemon/presentation/cubits/selected_pokemon_item/selected_pokemon_item_cubit.dart';
 import 'package:flutter_clean_architecture/features/pokemon/presentation/pages/pokemon_page.dart';
+import 'package:flutter_clean_architecture/features/pokemon_image/presentation/cubits/cubit/pokemon_image_cubit.dart';
 import 'package:flutter_clean_architecture/injection_container.dart';
 
 void main() async {
@@ -15,6 +19,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: PokemonPage());
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => PokemonCubit(getPokemon: sl())),
+        BlocProvider(create: (context) => SelectedPokemonItemCubit()),
+        BlocProvider(
+          create: (context) => PokemonImageCubit(getPokemonImage: sl()),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: PokemonPage(),
+      ),
+    );
   }
 }

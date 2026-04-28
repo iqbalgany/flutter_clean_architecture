@@ -100,7 +100,7 @@ class SearchPokemonWidget extends StatelessWidget {
                 pokemonImageCubit: pokemonImageCubit,
               );
               if (await NetworkInfoImpl(
-                    InternetConnectionChecker.instance,
+                    connectionChecker: InternetConnectionChecker.instance,
                   ).isConnected ==
                   false) {
                 ScaffoldMessenger.of(context).showSnackBar(
