@@ -2,11 +2,11 @@
 part of 'selected_page_cubit.dart';
 
 class SelectedPageState extends Equatable {
-  final int? selectedPage;
+  final int selectedPage;
   const SelectedPageState({this.selectedPage = 0});
 
   @override
-  List<Object?> get props => [selectedPage];
+  List<Object> get props => [selectedPage];
 
   SelectedPageState copyWith({int? selectedPage}) {
     return SelectedPageState(selectedPage: selectedPage ?? this.selectedPage);

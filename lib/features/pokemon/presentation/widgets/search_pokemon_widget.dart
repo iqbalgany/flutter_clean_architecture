@@ -103,13 +103,15 @@ class SearchPokemonWidget extends StatelessWidget {
                     connectionChecker: InternetConnectionChecker.instance,
                   ).isConnected ==
                   false) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('No connection'),
-                    showCloseIcon: true,
-                    backgroundColor: Colors.orange,
-                  ),
-                );
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('No connection'),
+                      showCloseIcon: true,
+                      backgroundColor: Colors.orange,
+                    ),
+                  );
+                }
               }
             },
           ),
